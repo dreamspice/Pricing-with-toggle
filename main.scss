@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+$very-light-grayish-blue: hsl(240, 78%, 98%);
+$light-grayish-blue: hsl(234, 14%, 74%);
+$grayish-blue: hsl(233, 13%, 49%);
+$dark-grayish-blue: hsl(232, 13%, 33%);
+
+@mixin center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    background-image: url('/images/bg-top.svg'), url('/images/bg-bottom.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-size: 40%, 0%;
+    background-position: 100% 0%, 0% 100%;
+    background-color: $very-light-grayish-blue;
+}
+
+.header {
+    margin-top: 50px;
+    color: $grayish-blue;
+    margin-bottom: 80px;
+    .monthly {
+        font-size: 1.2rem;
+        color: $light-grayish-blue;
+    }
+    .yearly {
+        font-size: 1.2rem;
+        color: $light-grayish-blue;
+    }
+    &__title {
+        text-align: center;
+    }
+    &__flex-center {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .switch { 
+        position : relative ;
+        display : inline-block;
+        width : 60px;
+        height : 30px;
+        background-color: #eee;
+        border-radius: 20px;
+      }
+      .switch::after {
+        content: '';
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: white;
+        top: 1px; // TO GIVE AN EFFECT OF CIRCLE INSIDE SWITCH.
+        left: 1px;
+        transition: all 0.3s;
+      }
+      .checkbox:checked + .switch::after {
+        left : 30px; 
+      }
+      .checkbox:checked + .switch {
+        background-color: #7983ff;
+      }
+      .checkbox {
+          display: none;
+      }
+}
+
+.attribution {
+    margin-top: auto;
+    font-size: 10px;
+    text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    &__btn {
+        padding: 10px 90px;
+        border-radius: 6px;
+        border: none;
+        text-transform: uppercase;
+    }
+    &__btn--white {
+        background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+        color: white;
+}
+}
+
+
+.column--two {
+    background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: white;
+    max-width: 450px;
+    width: 80%;
+    margin:  50px auto;
+    &__btn {
+        color: hsl(237, 63%, 64%);
+    }
+    &__yearly {
+        font-size: 3rem;
+    }
+    &__monthly {
+        display: none;
+    }
+    p {
+        border-bottom: 1px solid white;
+        width: 85%;
+        max-width: 300px;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+}
+
+.column--one, .column--three {
+    max-width: 450px;
+    width: 80%;
+    margin: auto;
+    background: white;
+    text-align: center;
+    color: $dark-grayish-blue;
+    &__monthly {
+        font-size: 3rem;;
+    }
+    &__yearly {
+        font-size: 3rem;
+    }
+    &__monthly {
+        font-size: 3rem;
+        display: none;
+    }
+    p {
+        border-bottom: 1px solid $light-grayish-blue;
+        width: 85%;
+        max-width: 300px;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+}
+
+.column--three {
+    margin-bottom: 60px;
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        background-size: 20%, 20%;
+        background-position: 100% 0%, 0% 100%;
+    }
+    main {
+        display: flex;
+        justify-content: center;
+        transform: translateY(40%);
+        gap: 20px;
+    }
+     .header {
+         margin-top: 200px;
+         margin-bottom: 0;
+     }
+     .flex-center {
+         margin: 0;
+     } 
+     .column--one {
+         transform: scale(1.1);
+         margin-left: 50px;
+     }  
+     .column--three {
+         transform: scale(1.1);
+         margin-right: 50px;
+     }
+     .column--two {
+         gap: 8px;
+         transform: scale(1.2);
+         z-index: 99;
+     }
+
+}
+
+
+
+
